@@ -1,0 +1,31 @@
+﻿Sub outlinee()
+    Dim ws As Worksheet
+    Dim ri, ci, sh As Integer
+    
+    ri = 2
+    ci = 2
+    sh = 1
+    Set ws = Worksheets("Лист1")
+    
+    
+    For i = 1 To 9
+        ws.Cells(ri, ci).Value = i
+        
+        If (sh Mod 2 <> 0) Then
+            ri = ri + 1
+            ci = ci + 1
+        Else
+            ri = ri + 1
+            ci = ci - 1
+        End If
+        
+        sh = sh + 1
+        
+        If (sh > 3) Then
+            ri = ri - 3
+            ci = ci + 1
+            sh = 1
+        End If
+        
+    Next i
+End Sub
